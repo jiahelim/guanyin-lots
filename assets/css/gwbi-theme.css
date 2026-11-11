@@ -86,10 +86,11 @@ body .breadcrumbs {
   text-align: left;
 }
 body .breadcrumbs .container { max-width: var(--gwbi-content); }
+/* The title and text sit in one column centred on the page; the text itself stays left aligned. */
+body .breadcrumbs .container > [data-lang] { max-width: 720px; margin-inline: auto; }
 body .breadcrumbs br { display: none; }
 body .breadcrumbs h2 {
   margin: 0;
-  max-width: 14em;
   font-family: var(--gwbi-font-display);
   font-size: 4rem;
   font-weight: var(--gwbi-weight-thin);
@@ -97,10 +98,10 @@ body .breadcrumbs h2 {
   letter-spacing: 0.04em;
   color: var(--gwbi-gold);
 }
+body .breadcrumbs h2 { text-wrap: balance; }
 body .breadcrumbs h2::after { content: ""; display: block; width: var(--gwbi-tick); margin-top: var(--gwbi-space-2); border-top: var(--gwbi-hairline) solid var(--gwbi-gold); }
 body .breadcrumbs h3 {
   margin: var(--gwbi-space-2) 0 0;
-  max-width: 34em;
   font-family: var(--gwbi-font-text);
   font-size: 1.375rem;
   font-weight: var(--gwbi-weight-regular);
@@ -248,4 +249,47 @@ body .counter-box { font-family: var(--gwbi-font-display); color: var(--gwbi-whi
   body .bg .jumbotron h4 { font-size: 1.0625rem; line-height: 1.8; }
   body .bg .jumbotron h4 strong { font-size: 1.75rem; }
   body #header .logo { font-size: 1.375rem; }
+}
+
+/* ---------- index1.html on phones and tablets: keep two columns ----------
+   Steps and the button on the left, a smaller statue on the right.
+   The flask and lot stick are sized in % of the statue, so they shrink with it and behave the same. */
+@media (max-width: 991px) {
+  body .flow {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 56px 12px 24px;
+  }
+  body .flow-steps {
+    position: static;
+    flex: 1 1 56%;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+  }
+  body .flow .imageBanner {
+    flex: 0 0 42%;
+    width: 42%;
+    position: sticky;
+    top: 56px;
+  }
+  body .flow-cta {
+    position: static;
+    margin-top: 10px;
+    padding: 0;
+    background: none;
+    border-top: 0;
+    box-shadow: none;
+  }
+  body .flow-cta .btn { padding: 16px 8px; letter-spacing: 0.18em; }
+  body .flow-steps .step-toggle { padding: 14px 12px; letter-spacing: 0.18em; }
+  body .flow-steps .card-body { padding: 0 12px 12px; }
+  body .flow-steps .step-list::before { left: 10px; }
+  body .flow-steps .step-list > li { padding: 10px 0; font-size: 0.8125rem; line-height: 1.6; }
+  body .flow-steps .step-num { flex-basis: 21px; height: 21px; margin-right: 10px; font-size: 0.8125rem; line-height: 19px; }
+  body .flow-steps .step-list strong { font-size: 1.25rem; }
+  body .flow-steps .sub-toggle { padding: 8px 0; font-size: 0.75rem; }
+  body .flow-steps .sub-list { padding-left: 14px; font-size: 0.75rem; }
+  body .counter-box { font-size: 1.25rem; left: 8%; }
 }

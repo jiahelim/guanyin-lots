@@ -82,7 +82,7 @@ def page(title, body, depth_css="assets/lots.css?v=4", lang_js="../assets/js/lan
 <body>
 <header class="topbar">
   <div class="wrap">
-    <a class="brand" href="index.html">{both("Guan Yin Divine Lots", "观音灵签")}</a>
+    <a class="brand" href="../index1.html">{both("Guan Yin Divine Lots", "观音灵签")}</a>
     <nav>
       <a class="btn primary" href="../index1.html">{both("Draw a lot", "求签")}</a>
       <a class="btn" href="{DONATION_URL}" target="_blank" rel="noopener">{both("Offerings", "供养")}</a>
