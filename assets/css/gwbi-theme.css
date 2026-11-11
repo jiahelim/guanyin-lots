@@ -294,57 +294,63 @@ body .counter-box { font-family: var(--gwbi-font-display); color: var(--gwbi-whi
   body .counter-box { font-size: 1.25rem; left: 8%; }
 }
 
-/* ---------- index1.html on phones: the statue is the backdrop ----------
-   The statue stays centred at the bottom of a dark band whose colour matches the picture's edges,
-   so on wider phones the sides are filled with the same brown. The steps panel and button float on
-   the left above it, and the panel leaves room below for the flask, which sits on the statue's lower left.
-   The flask and lot stick are sized in % of the statue, so they behave as before. */
-@media (max-width: 767px) {
+/* ---------- index1.html on phones and tablets: statue on top, steps below ----------
+   The statue comes first and the steps panel and button sit underneath it; opening the steps only
+   grows the page downwards, so the panel never sits on the statue. The statue is centred with dark padding on
+   both sides, coloured to match the picture's edges. The flask and lot stick are sized in % of the
+   statue, so they behave as before. */
+@media (max-width: 991px) {
   body .flow {
-    --bw: min(100vw, 460px);               /* statue width */
-    display: grid;
-    grid-template-columns: 100%;
-    gap: 0;
-    padding: 56px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;           /* the desktop rule centres; start at the top here */
+    gap: 18px;
+    min-height: 100vh;                     /* keep the dark ground to the bottom of the screen */
+    min-height: 100svh;
+    padding: 56px 6px 24px;
+    overflow-x: clip;                      /* the flask image's transparent edge reaches past the statue */
     background:
-      radial-gradient(ellipse 70% 55% at 50% 55%, #432F21 0%, rgba(51, 34, 23, 0) 70%),
-      linear-gradient(#1C1411, #33241B 30%, #2A1D15 70%, #231610);
+      radial-gradient(ellipse 70% 45% at 50% 75%, #432F21 0%, rgba(51, 34, 23, 0) 70%),
+      linear-gradient(#1C1411, #2A1D15 40%, #33241B 70%, #231610);
   }
-  body .flow-steps,
-  body .flow .imageBanner { grid-area: 1 / 1; }
   body .flow-steps {
-    position: relative;
-    z-index: 100;
-    align-self: start;
-    justify-self: start;
-    width: 62%;
-    margin: 0 0 calc(var(--bw) * 1.72 * 0.40) 12px;   /* keep the statue's lower part, with the flask, uncovered */
+    position: static;
+    order: 2;                              /* below the statue */
+    flex: none;
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
   }
+  /* Flask at its usual left-hand spot, set a little lower on phones and tablets. The stick keeps its
+     usual start point, which is now just inside the top of the flask. */
+  body #item { top: 62%; }
   body .flow .imageBanner {
     position: relative;
     top: auto;
-    align-self: end;
-    justify-self: center;
-    width: var(--bw);
+    order: 1;
+    flex: none;
+    width: min(100%, 520px);              /* nearly full width; only a sliver of dark padding at the sides */
     max-width: none !important;            /* the page script sets a max-width for some screen heights */
+    margin: 0 auto;
   }
-  /* Soften the picture's left and right edges into the fill (the flask is a separate image and stays crisp) */
+  /* Soften the picture's left and right edges into the padding (the flask is a separate image and stays crisp) */
   body .flow .imageCentre img {
-    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 4%, #000 96%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, #000 4%, #000 96%, transparent 100%);
   }
-  body .flow-steps .card {
-    border-color: rgba(255, 255, 255, 0.5);
-    background: rgba(249, 248, 244, 0.9);
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
-  }
+  body .flow-steps .card { border-color: rgba(255, 255, 255, 0.5); background: var(--gwbi-paper); }
   body .flow-steps .step-num { background: var(--gwbi-paper); }
+  body .flow-steps .step-list > li { font-size: 0.875rem; }
+  /* The button takes a warm sand tone with a gold edge, so it reads as a button */
   body .flow-cta .btn {
-    border-color: var(--gwbi-paper);
-    background: var(--gwbi-paper);
+    border-color: var(--gwbi-gold);
+    background: #E8D9B0;
     color: var(--gwbi-ink);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
   }
-  body .flow-cta .btn:disabled { opacity: 0.7; }
+  body .flow-cta .btn:hover:not(:disabled),
+  body .flow-cta .btn:focus:not(:disabled) { border-color: var(--gwbi-gold); background: var(--gwbi-gold); color: var(--gwbi-white); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); }
+  body .flow-cta .btn:disabled { opacity: 0.75; }
   body .counter-box { left: auto; right: 8%; }
 }
