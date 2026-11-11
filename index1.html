@@ -1040,5 +1040,16 @@ img {
 	});
 </script>
 
+<script>
+	// Phones: the steps panel floats over the statue, so fold it away once the visitor
+	// starts drawing; the rising lot stick and the flask then stay in view. Tap the panel title to reopen it.
+	(function () {
+		function foldSteps() {
+			if (window.innerWidth < 768) $("#flowGuide").collapse("hide");
+		}
+		$("#flowCta").on("click", foldSteps);
+		$("#item").on("touchstart mousedown", foldSteps);
+	})();
+</script>
 </body>
 </html>
