@@ -1,0 +1,251 @@
+@import url("gwbi-tokens.css");
+
+/*
+ * GWBI theme for the intro and draw pages (about, guide2, index1).
+ * Loaded after each page's own styles and overrides them; remove the <link> to get the old look back.
+ * The lot pages are themed in lots/assets/lots.css instead.
+ */
+
+/* ---------- Base ---------- */
+html body {
+  background: var(--gwbi-paper);
+  color: var(--gwbi-ink);
+  font-family: var(--gwbi-font-text);
+  letter-spacing: var(--gwbi-tracking-lead);
+}
+body h1, body h2, body h3, body h4, body h5, body h6 { font-family: var(--gwbi-font-text); }
+body a { color: var(--gwbi-gold-deep); transition: var(--gwbi-hover); }
+body a:hover { color: var(--gwbi-gold); }
+::selection { background: var(--gwbi-gold); color: var(--gwbi-white); }
+:focus-visible { outline: var(--gwbi-hairline) solid var(--gwbi-gold); outline-offset: 4px; }
+
+/* Solid caps button. Bootstrap's red .btn-danger becomes this. */
+body .btn-danger,
+body .btn-danger:not(:disabled):not(.disabled):active {
+  padding: 18px 40px;
+  border: var(--gwbi-hairline) solid var(--gwbi-ink);
+  border-radius: 0;
+  background: var(--gwbi-ink);
+  box-shadow: none;
+  font-family: var(--gwbi-font-text);
+  font-size: var(--gwbi-text-caps);
+  line-height: 1;
+  letter-spacing: var(--gwbi-tracking-caps);
+  text-transform: uppercase;
+  color: var(--gwbi-paper);
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+body .btn-danger:hover,
+body .btn-danger:focus { border-color: var(--gwbi-gold); background: var(--gwbi-gold); box-shadow: none; color: var(--gwbi-white); }
+
+/* Language switch (drawn by assets/js/lang.js): square, hairline, caps */
+html .lang-toggle { padding: 0; border: var(--gwbi-hairline) solid var(--gwbi-ink); border-radius: 0; background: var(--gwbi-paper); box-shadow: none; }
+html .lang-toggle a { padding: 7px 14px; border-radius: 0; font-family: var(--gwbi-font-text); font-size: 0.75rem; letter-spacing: 0.2em; color: var(--gwbi-ink); }
+html .lang-toggle a:hover { color: var(--gwbi-gold-deep); }
+html .lang-toggle a.active { background: var(--gwbi-ink); color: var(--gwbi-paper); }
+
+/* ---------- about.html (Mentor template) ---------- */
+body #header {
+  height: var(--gwbi-space-3);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  background: var(--gwbi-paper);
+  border-bottom: var(--gwbi-hairline) solid var(--gwbi-line-soft);
+  box-shadow: none;
+}
+body #header .logo {
+  font-family: var(--gwbi-font-display);
+  font-size: 1.75rem;
+  font-weight: var(--gwbi-weight-thin);
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+body #header .logo a { color: var(--gwbi-gold); }
+body .nav-menu a,
+body .nav-menu .active > a,
+body .nav-menu li:hover > a {
+  font-family: var(--gwbi-font-text);
+  font-size: var(--gwbi-text-caps);
+  font-weight: var(--gwbi-weight-regular);
+  letter-spacing: var(--gwbi-tracking-caps);
+  text-transform: uppercase;
+  color: var(--gwbi-ink);
+}
+body .nav-menu a:hover { color: var(--gwbi-gold-deep); }
+body .mobile-nav-toggle i { color: var(--gwbi-ink); }
+
+/* Opening: paper with a faint warm glow, large thin gold title, left aligned */
+body .breadcrumbs {
+  margin-top: var(--gwbi-space-3);
+  padding: var(--gwbi-space-5) 0 var(--gwbi-space-4);
+  background:
+    radial-gradient(ellipse 60% 80% at 30% 40%, rgba(205, 165, 27, 0.10) 0%, rgba(249, 248, 244, 0) 70%),
+    var(--gwbi-paper);
+  color: var(--gwbi-ink);
+  text-align: left;
+}
+body .breadcrumbs .container { max-width: var(--gwbi-content); }
+body .breadcrumbs br { display: none; }
+body .breadcrumbs h2 {
+  margin: 0;
+  max-width: 14em;
+  font-family: var(--gwbi-font-display);
+  font-size: 4rem;
+  font-weight: var(--gwbi-weight-thin);
+  line-height: var(--gwbi-leading-display);
+  letter-spacing: 0.04em;
+  color: var(--gwbi-gold);
+}
+body .breadcrumbs h2::after { content: ""; display: block; width: var(--gwbi-tick); margin-top: var(--gwbi-space-2); border-top: var(--gwbi-hairline) solid var(--gwbi-gold); }
+body .breadcrumbs h3 {
+  margin: var(--gwbi-space-2) 0 0;
+  max-width: 34em;
+  font-family: var(--gwbi-font-text);
+  font-size: 1.375rem;
+  font-weight: var(--gwbi-weight-regular);
+  line-height: 1.9;
+  letter-spacing: var(--gwbi-tracking-lead);
+  color: var(--gwbi-ink);
+}
+
+body .about { padding: var(--gwbi-space-2) 0 var(--gwbi-space-5); background: transparent; }
+body .about .content h3 {
+  margin-bottom: var(--gwbi-space-2);
+  font-family: var(--gwbi-font-display);
+  font-size: 2.7rem;
+  font-weight: var(--gwbi-weight-thin);
+  line-height: 1.25;
+  letter-spacing: var(--gwbi-tracking-display-lg);
+  color: var(--gwbi-gold);
+}
+body .about .content ul li {
+  position: relative;
+  padding: 0 0 22px 34px;
+  font-size: 1.125rem;
+  line-height: 1.9;
+  color: var(--gwbi-ink);
+}
+body .about .content ul i { position: absolute; left: 0; top: 6px; font-size: 18px; padding: 0; color: var(--gwbi-gold); }
+body .about .content p { margin-top: var(--gwbi-space-2); }
+body .about img.img-fluid { border: 0; box-shadow: none; }
+body .back-to-top { width: 40px; height: 40px; border: var(--gwbi-hairline) solid var(--gwbi-ink); border-radius: 50%; background: var(--gwbi-paper); }
+body .back-to-top i, body .back-to-top i:hover { width: 38px; height: 38px; font-size: 20px; background: transparent; color: var(--gwbi-ink); }
+body #preloader { background: var(--gwbi-paper); }
+body #preloader:before { border-color: var(--gwbi-gold); border-top-color: transparent; }
+
+/* ---------- guide2.html ---------- */
+/* Background: the system's plain paper page (the cloud picture is no longer shown). */
+body .bg { background: var(--gwbi-paper); }
+/* The text panel: white with one soft hairline, so it reads as a panel on paper. */
+body .bg .jumbotron {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: var(--gwbi-space-2) 54px 40px;
+  border-radius: 0;
+  border: var(--gwbi-hairline) solid var(--gwbi-line-soft);
+  background: var(--gwbi-white);
+  box-shadow: none;
+}
+body .bg .jumbotron h4 {
+  font-family: var(--gwbi-font-text);
+  font-size: 1.25rem;
+  font-weight: var(--gwbi-weight-regular);
+  line-height: 1.9;
+  color: var(--gwbi-ink) !important;
+}
+body .bg .jumbotron h4 strong {
+  display: block;
+  margin-bottom: 16px;
+  font-family: var(--gwbi-font-display);
+  font-size: 2.25rem;
+  font-weight: var(--gwbi-weight-thin);
+  line-height: 1.3;
+  color: var(--gwbi-gold);
+}
+
+/* ---------- index1.html (draw page). Colours and type only; the flask is untouched. ---------- */
+body .flow-steps .card {
+  border: var(--gwbi-hairline) solid var(--gwbi-line-soft);
+  border-radius: 0 !important;
+  background: var(--gwbi-white);
+  box-shadow: none;
+}
+body .flow-steps .step-toggle {
+  padding: 22px 24px;
+  font-family: var(--gwbi-font-text);
+  font-size: var(--gwbi-text-caps);
+  font-weight: var(--gwbi-weight-regular);
+  letter-spacing: var(--gwbi-tracking-caps);
+  text-transform: uppercase;
+  color: var(--gwbi-ink);
+}
+body .flow-steps .step-toggle::after,
+body .flow-steps .sub-toggle::after { border-width: 0 1px 1px 0; border-color: var(--gwbi-ink); }
+body .flow-steps .card-body { padding: 0 24px 24px; }
+
+/* The three steps hang on a gold hairline, like the source's timeline */
+body .flow-steps .step-list { position: relative; }
+body .flow-steps .step-list::before { content: ""; position: absolute; top: 26px; bottom: 30px; left: 13px; width: var(--gwbi-hairline); background: var(--gwbi-gold); }
+body .flow-steps .step-list > li { position: relative; padding: 16px 0; font-size: 1rem; line-height: 1.8; color: var(--gwbi-stone-600); }
+body .flow-steps .step-list > li + li { border-top: 0; }
+body .flow-steps .step-num {
+  position: relative;
+  flex: 0 0 27px;
+  height: 27px;
+  margin-right: 18px;
+  border: var(--gwbi-hairline) solid var(--gwbi-gold);
+  border-radius: 50%;
+  background: var(--gwbi-white);
+  font-family: var(--gwbi-font-display);
+  font-size: 1rem;
+  font-weight: var(--gwbi-weight-regular);
+  line-height: 25px;
+  color: var(--gwbi-gold-deep);
+}
+body .flow-steps .step-list strong {
+  margin-bottom: 4px;
+  font-family: var(--gwbi-font-display);
+  font-size: 1.625rem;
+  font-weight: var(--gwbi-weight-thin);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--gwbi-gold);
+}
+body .flow-steps .sub-accordion { margin-top: 14px; border-block: var(--gwbi-hairline) solid var(--gwbi-line-soft); border-radius: 0; background: transparent; }
+body .flow-steps .sub-toggle { padding: 12px 0; font-size: 0.9375rem; font-weight: var(--gwbi-weight-regular); color: var(--gwbi-ink); }
+body .flow-steps .sub-list { padding: 0 0 12px 20px; font-size: 0.9375rem; color: var(--gwbi-stone-600); }
+
+body .flow-cta .btn {
+  padding: 20px 18px;
+  border: var(--gwbi-hairline) solid var(--gwbi-ink);
+  border-radius: 0;
+  background: var(--gwbi-ink);
+  font-family: var(--gwbi-font-text);
+  font-size: var(--gwbi-text-caps);
+  font-weight: var(--gwbi-weight-regular);
+  line-height: 1;
+  letter-spacing: var(--gwbi-tracking-caps);
+  text-transform: uppercase;
+  color: var(--gwbi-paper);
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+body .flow-cta .btn:hover:not(:disabled),
+body .flow-cta .btn:focus:not(:disabled) { border-color: var(--gwbi-gold); background: var(--gwbi-gold); box-shadow: none; color: var(--gwbi-white); }
+body .flow-cta .btn:disabled { opacity: 0.5; }
+body .counter-box { font-family: var(--gwbi-font-display); color: var(--gwbi-white); }
+
+@media (max-width: 991px) {
+  body .flow-cta { background: rgba(249, 248, 244, 0.97); border-top: var(--gwbi-hairline) solid var(--gwbi-line-soft); box-shadow: none; }
+  body .breadcrumbs { padding: var(--gwbi-space-4) 0 var(--gwbi-space-2); }
+  body .breadcrumbs .container { padding-inline: 24px; }
+  body .breadcrumbs h2 { font-size: 2.6rem; }
+  body .breadcrumbs h3 { font-size: 1.125rem; line-height: 1.8; }
+  body .about .content h3 { font-size: 2rem; }
+}
+@media (max-width: 600px) {
+  body .bg .jumbotron { padding: 32px 24px 28px; }
+  body .bg .jumbotron h4 { font-size: 1.0625rem; line-height: 1.8; }
+  body .bg .jumbotron h4 strong { font-size: 1.75rem; }
+  body #header .logo { font-size: 1.375rem; }
+}

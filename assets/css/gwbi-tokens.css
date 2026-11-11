@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Lora:ital,wght@0,400;0,600;1,400&family=Noto+Serif+SC:wght@400;600&display=swap");
+
+/* Copy of design-system-gwbi/tokens.css for the site, which is deployed on its own. Keep the two in step. */
+
+/*
+ * GWBI design tokens
+ * Extracted from https://www.gwbi.org/education/ (desktop 1440px and mobile 390px), 2026-11-11.
+ * Values are the computed styles the live page renders. Token names are ours.
+ *
+ * Fonts: the source uses Canela (display) and A-OTF Futo Min (CJK), both commercial and not included.
+ * The stacks below name the free stand-ins first and the originals after, so a licensed copy wins if installed.
+ */
+
+:root {
+  /* ---------- Colour ---------- */
+  --gwbi-paper: #F9F8F4;      /* page background: almost the whole page */
+  --gwbi-white: #FFFFFF;      /* text on photographs */
+  --gwbi-mist: #F2F2F2;       /* light text on dark controls */
+
+  --gwbi-ink: #403F3E;        /* body text, nav, hairline rules */
+  --gwbi-stone-600: #686664;  /* small secondary text */
+  --gwbi-stone-500: #827F7D;  /* secondary reading text */
+  --gwbi-stone-300: #B4B3B1;  /* fine print, inactive labels */
+
+  --gwbi-gold: #A7811A;       /* the one accent: display titles, timeline, time labels, active nav */
+  --gwbi-gold-bright: #CDA51B;/* declared in the site's global colours; rarely rendered */
+
+  /* Our addition: gold darkened for small text, which the source's gold is too light for (6.1:1 on paper). */
+  --gwbi-gold-deep: #7A5E13;
+
+  /* Our addition: a soft hairline for card edges, mixed from ink. The source has no cards. */
+  --gwbi-line-soft: rgba(64, 63, 62, 0.16);
+
+  /* Semantic */
+  --gwbi-color-page: var(--gwbi-paper);
+  --gwbi-color-text: var(--gwbi-ink);
+  --gwbi-color-muted: var(--gwbi-stone-500);
+  --gwbi-color-accent: var(--gwbi-gold);
+  --gwbi-color-rule: var(--gwbi-ink);
+  --gwbi-color-timeline: var(--gwbi-gold);
+
+  /* ---------- Typography ---------- */
+  --gwbi-font-display: "Cormorant Garamond", "Canela", "Noto Serif SC", "Noto Serif TC", serif;
+  --gwbi-font-text: "Lora", "Noto Serif SC", "Noto Serif TC", serif;
+  --gwbi-font-cjk: "Noto Serif SC", "Noto Serif TC", "a-otf-futo-min-a101-pr6n", serif;
+
+  --gwbi-weight-thin: 300;    /* display */
+  --gwbi-weight-regular: 400; /* everything else */
+  --gwbi-weight-semibold: 600;/* used once, sparingly */
+
+  /* Desktop sizes, px as rendered */
+  --gwbi-text-display-xl: 5.4rem;   /* 86.4px / 103.68  hero and section titles */
+  --gwbi-text-display-lg: 2.7rem;   /* 43.2px / 69.12   secondary titles */
+  --gwbi-text-lead: 1.5rem;         /* 24px / 48        reading text */
+  --gwbi-text-label: 1rem;          /* 16px / 16        time labels, chapter nav */
+  --gwbi-text-caps: 0.75rem;        /* 12px             MENU, uppercase controls */
+  --gwbi-text-micro: 0.5625rem;     /* 9px / 15         fine print */
+
+  /* Phone sizes (390px) */
+  --gwbi-text-display-xl-sm: 2.4375rem; /* 39px / 46.8 */
+  --gwbi-text-display-lg-sm: 1.95rem;   /* 31.2px / 37.44 */
+  --gwbi-text-lead-sm: 1rem;            /* 16px / 28 */
+  --gwbi-text-label-sm: 0.75rem;        /* 12px / 12 */
+
+  --gwbi-leading-display: 1.2;
+  --gwbi-leading-display-lg: 1.6;
+  --gwbi-leading-lead: 2;          /* 24/48 */
+  --gwbi-leading-lead-sm: 1.75;    /* 16/28 */
+  --gwbi-leading-tight: 1;
+
+  --gwbi-tracking-display: 0.058em; /* 5.04px at 86.4 */
+  --gwbi-tracking-display-lg: 0.033em;
+  --gwbi-tracking-lead: 0.015em;
+  --gwbi-tracking-label: 0.05em;
+  --gwbi-tracking-caps: 0.33em;     /* 4px at 12 */
+  --gwbi-tracking-micro: 0.33em;    /* 3px at 9 */
+
+  /* ---------- Space: steps of 45 ---------- */
+  --gwbi-space-1: 12px;
+  --gwbi-space-2: 45px;
+  --gwbi-space-3: 72px;
+  --gwbi-space-4: 90px;
+  --gwbi-space-5: 135px;
+  --gwbi-space-6: 144px;
+
+  /* ---------- Layout ---------- */
+  --gwbi-page-max: 1440px;
+  --gwbi-gutter: 10vw;          /* 144px side margin at 1440 */
+  --gwbi-content: 1152px;       /* 1440 minus both gutters */
+  --gwbi-container: 960px;
+  --gwbi-column: 504px;         /* reading column */
+
+  /* ---------- Lines and shape ---------- */
+  --gwbi-hairline: 1px;
+  --gwbi-tick: 32px;            /* gold tick at each end of the timeline */
+  --gwbi-rule-short: 144px;     /* ink rule framing the chapter nav */
+  --gwbi-radius: 0;             /* images, panels, rules: square */
+  --gwbi-radius-round: 50%;     /* circular icon buttons */
+
+  /* ---------- Motion ---------- */
+  --gwbi-fade: opacity 1s ease-out;   /* content fades in on scroll */
+  --gwbi-hover: color 0.3s ease-in-out;
+}
+
+/* Site: Cormorant's default old-style figures make "1" read as "ı"; use lining figures everywhere. */
+html body { font-variant-numeric: lining-nums; }
