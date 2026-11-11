@@ -184,6 +184,9 @@ body .flow-steps .step-toggle {
 body .flow-steps .step-toggle::after,
 body .flow-steps .sub-toggle::after { border-width: 0 1px 1px 0; border-color: var(--gwbi-ink); }
 body .flow-steps .card-body { padding: 0 24px 24px; }
+/* "How to draw a lot" is always open: a plain heading, no fold arrow */
+body .flow-steps .step-title { margin: 0; cursor: default; line-height: 1.4; }
+body .flow-steps .step-title::after { content: none; }
 
 /* The three steps hang on a gold hairline, like the source's timeline */
 body .flow-steps .step-list { position: relative; }
@@ -308,7 +311,7 @@ body .counter-box { font-family: var(--gwbi-font-display); color: var(--gwbi-whi
     gap: 18px;
     min-height: 100vh;                     /* keep the dark ground to the bottom of the screen */
     min-height: 100svh;
-    padding: 56px 6px 24px;
+    padding: 0 6px 24px;                   /* statue starts at the very top; the language switch floats over it */
     overflow-x: clip;                      /* the flask image's transparent edge reaches past the statue */
     background:
       radial-gradient(ellipse 70% 45% at 50% 75%, #432F21 0%, rgba(51, 34, 23, 0) 70%),
@@ -352,5 +355,5 @@ body .counter-box { font-family: var(--gwbi-font-display); color: var(--gwbi-whi
   body .flow-cta .btn:hover:not(:disabled),
   body .flow-cta .btn:focus:not(:disabled) { border-color: var(--gwbi-gold); background: var(--gwbi-gold); color: var(--gwbi-white); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); }
   body .flow-cta .btn:disabled { opacity: 0.75; }
-  body .counter-box { left: auto; right: 8%; }
+  body .counter-box { left: 4%; right: auto; top: 8px; }   /* top left, clear of the language switch */
 }

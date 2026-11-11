@@ -357,11 +357,11 @@ img {
 	<div class="accordion" id="flowSteps">
 		<div class="card">
 			<div class="card-header">
-				<button class="step-toggle" type="button" data-toggle="collapse" data-target="#flowGuide">
+				<h2 class="step-toggle step-title"><!-- always open: no collapse toggle -->
 					<span data-lang="en">How to draw a lot</span><span data-lang="zh">求签步骤</span>
-				</button>
+				</h2>
 			</div>
-			<div id="flowGuide" class="collapse show" data-parent="#flowSteps">
+			<div id="flowGuide">
 				<div class="card-body">
 					<ol class="step-list">
 						<li>
@@ -1040,16 +1040,5 @@ img {
 	});
 </script>
 
-<script>
-	// Phones and tablets: fold the steps away once the visitor
-	// starts drawing, so the button sits right under the statue. Tap the panel title to reopen it.
-	(function () {
-		function foldSteps() {
-			if (window.innerWidth < 992) $("#flowGuide").collapse("hide");
-		}
-		$("#flowCta").on("click", foldSteps);
-		$("#item").on("touchstart mousedown", foldSteps);
-	})();
-</script>
 </body>
 </html>
